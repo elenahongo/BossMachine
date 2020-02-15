@@ -1,0 +1,23 @@
+const express = require('express');
+const apiRouter = express.Router();
+const {
+    createMeeting,
+    getAllFromDatabase,
+    getFromDatabaseById,
+    addToDatabase,
+    updateInstanceInDatabase,
+    deleteFromDatabasebyId,
+    deleteAllFromDatabase,
+  } = require('./db');
+
+const minionsRouter = require('./minionsRouter');
+apiRouter.use('/minions', minionsRouter);
+
+const ideasRouter = require('./ideasRouter');
+apiRouter.use('/ideas', ideasRouter);
+
+const meetingsRouter = require('./meetingsRouter');
+apiRouter.use('/meetings', meetingsRouter);
+
+
+module.exports = apiRouter;
